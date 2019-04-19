@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页-调查列表</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="connect">
+        <h2>民意调查列表</h2>
+        <ul>
+            {% for que in list %}
+                <li><a href="{% url 'polls:choice' que.id %}">{{que.id}}.{{que.question}}</a></li>
+            {% empty %}
+                <h3>暂无调查</h3>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
+</body>
+</html>

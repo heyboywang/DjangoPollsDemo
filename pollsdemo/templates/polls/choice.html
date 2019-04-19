@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择页</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="connect">
+        <h2>请选择</h2>
+        <h3>{{que.question}}</h3>
+        <form action="{% url 'polls:choicetool' que.id %}" method="post">
+            {% for opt in optlist %}
+                {{opt.option}}<input type="radio" value={{opt.id}} name="options"><br>
+            {% empty %}
+                <h3>暂无问题</h3>
+            {% endfor %}
+            <input type="submit" value="提交">
+        </form>
+        <a href="{% url 'polls:pollslist' %}">返回</a>
+    </div>
+
+
+</body>
+</html>

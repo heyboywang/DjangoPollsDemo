@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>票数详情</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="connect">
+        <h3>{{que.question}}</h3>
+        {% for opt in optlist %}
+            {{opt.option}} {{opt.votes}}票  <br>
+        {% empty %}
+            <h3>暂无问题</h3>
+        {% endfor %}
+        <br><br>
+        <a href="{% url 'polls:pollslist' %}">返回</a>
+    </div>
+
+</body>
+</html>
